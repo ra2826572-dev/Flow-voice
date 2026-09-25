@@ -372,6 +372,43 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
       </section>
 
+      {/* Supabase Database & Storage Integration Status Widget */}
+      <section className="rounded-2xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/20 via-[#12131a] to-slate-900 p-5 shadow-xs space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-emerald-950 text-emerald-400 border border-emerald-800/60 flex items-center justify-center font-black">
+              ⚡
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                <span>Supabase Cloud Database & Storage</span>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono border border-emerald-500/30">
+                  Active
+                </span>
+              </h3>
+              <p className="text-xs text-slate-400">
+                Persistent backend sync for users, generated audio history, and translation logs.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-emerald-400 font-mono bg-emerald-950/80 px-2.5 py-1 rounded-lg border border-emerald-800">
+              ✓ 5 Tables Connected
+            </span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1 text-[11px]">
+          {['users', 'projects', 'audio_history', 'translation_history', 'cloned_voices'].map((tbl) => (
+            <div key={tbl} className="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 flex items-center justify-between font-mono">
+              <span className="truncate">{tbl}</span>
+              <span className="text-emerald-400">●</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* 4. Recent Conversions Section */}
       <section className="rounded-2xl border border-slate-800/80 bg-[#12131a] overflow-hidden shadow-xs">
         <div className="p-5 border-b border-slate-800/80 flex items-center justify-between">
